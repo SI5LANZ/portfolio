@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Julian Lanz, Designer</title>
+<meta name="description" content="Julian Lanz, multidisciplinary graphic designer. AI-powered workflow, hand-held taste.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css?v=19">
+</head>
+<body>
+
+<header class="nav">
+  <a class="nav-mark" href="#top">Julian&nbsp;Lanz&nbsp;<em>neue</em></a>
+  <nav class="nav-links">
+    <a href="#wall">wall</a>
+    <a href="#process">process</a>
+    <a href="#motion">motion</a>
+    <a href="#personal">personal</a>
+    <a href="https://www.instagram.com/julian.lanz.svg/" target="_blank" rel="noopener">instagram&nbsp;&#8599;</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO: giant staggered type + cursor image trail -->
+  <section class="hero">
+    <div class="hero-leo" aria-hidden="true">
+      <video src="assets/motion/leopard-walk.mp4" muted loop playsinline preload="auto" data-autoplay></video>
+    </div>
+    <div class="trail-layer" id="trailLayer" aria-hidden="true"></div>
+    <hr class="hero-rule" aria-hidden="true">
+    <h1 class="hero-type">
+      <span class="ht-row ht-r1" data-w>Taste</span>
+      <span class="ht-row ht-r2 ht-outline" data-w>first.</span>
+      <span class="ht-row ht-r3" data-w>AI <em>second.</em></span>
+    </h1>
+    <div class="hero-foot">
+      <p class="hero-sub">Julian Lanz, multidisciplinary graphic designer. Machines make me fast. Taste makes it worth looking at.</p>
+      <p class="hero-hint" aria-hidden="true">move your cursor</p>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Statics&nbsp;&middot; Reels&nbsp;&middot; Brands&nbsp;&middot; Pipelines&nbsp;&middot; Posters&nbsp;&middot;&nbsp;</span><span>Statics&nbsp;&middot; Reels&nbsp;&middot; Brands&nbsp;&middot; Pipelines&nbsp;&middot; Posters&nbsp;&middot;&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- THE WALL -->
+  <section class="wall-section" id="wall">
+    <div class="wall-head">
+      <h2 class="sec-giant">The<br><em>wall</em></h2>
+      <p class="wall-lede"><span data-count>600</span> of <span data-total>3,623</span> statics I designed for coaches and personal brands across DACH. Hover to look closer, click for full size.</p>
+      <div class="wall-controls">
+        <div class="wall-filters" role="group" aria-label="Filter by client"></div>
+        <button class="tbtn" id="shuffleBtn" type="button">&#8635; Shuffle</button>
+      </div>
+    </div>
+    <div class="wall" id="wallGrid"></div>
+  </section>
+
+  <!-- PROCESS: sideways scroll -->
+  <section class="hpan" id="process">
+    <div class="hpan-sticky">
+      <div class="hpan-track" id="hpanTrack">
+
+        <div class="panel panel-intro">
+          <h2 class="panel-giant">The AI part,<br><em>honestly.</em></h2>
+          <p class="panel-lede">A campaign rarely needs one ad. It needs fifty, on brand, by Friday. So I built a pipeline that renders whole series while I stay on the pixels. Keep scrolling, it goes sideways.</p>
+        </div>
+
+        <div class="panel">
+          <span class="panel-num" aria-hidden="true">01</span>
+          <div class="panel-body">
+            <h3>Deconstruct the brand</h3>
+            <p>Colors, type, tone, offer. I pull the real tokens out of the client's funnel, so every ad looks like them, not like me.</p>
+          </div>
+          <div class="panel-visual">
+            <div class="ci-board">
+              <div class="ci-row">
+                <span class="ci-chip" style="--c:#14243e">Navy</span>
+                <span class="ci-chip" style="--c:#f0a63c; color:#14243e">Gold</span>
+                <span class="ci-chip" style="--c:#e9eef5; color:#14243e">Ice</span>
+              </div>
+              <p class="ci-type-script">navy carries the trust,</p>
+              <p class="ci-type-sans">gold only shows up where money talks.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <span class="panel-num" aria-hidden="true">02</span>
+          <div class="panel-body">
+            <h3>Design the layout system</h3>
+            <p>Not one ad. Ten layout families that can carry any hook: listicle, quote, proof, deadline, comparison. The system is the deliverable.</p>
+          </div>
+          <div class="panel-visual">
+            <div class="pv-minigrid" id="systemGrid"></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <span class="panel-num" aria-hidden="true">03</span>
+          <div class="panel-body">
+            <h3>Build each ad as code</h3>
+            <p>Every static is a small webpage with the brand tokens baked in. Changing a headline takes seconds, not another design file.</p>
+          </div>
+          <div class="panel-visual">
+            <pre class="code"><code><span class="c-tag">&lt;div</span> <span class="c-attr">class</span>=<span class="c-str">"ad ad--report"</span><span class="c-tag">&gt;</span>
+  <span class="c-tag">&lt;h1&gt;</span>Deutsche Sparer wissen oft nicht,
+      wie schnell sie im Ernstfall
+      <span class="c-tag">&lt;mark&gt;</span>an ihr eigenes Geld<span class="c-tag">&lt;/mark&gt;</span> kommen<span class="c-tag">&lt;/h1&gt;</span>
+  <span class="c-tag">&lt;img</span> <span class="c-attr">class</span>=<span class="c-str">"report-stack"</span> …<span class="c-tag">&gt;</span>
+  <span class="c-tag">&lt;a</span> <span class="c-attr">class</span>=<span class="c-str">"cta"</span><span class="c-tag">&gt;</span>Jetzt kostenfrei sichern<span class="c-tag">&lt;/a&gt;</span>
+<span class="c-tag">&lt;/div&gt;</span></code></pre>
+          </div>
+        </div>
+
+        <div class="panel">
+          <span class="panel-num" aria-hidden="true">04</span>
+          <div class="panel-body">
+            <h3>Render the whole fleet</h3>
+            <p>A Python script screenshots every ad at 2160px and downscales to a crisp 1080. Fifty finals in the time one manual export used to take.</p>
+          </div>
+          <div class="panel-visual">
+            <pre class="code"><code><span class="c-kw">with</span> sync_playwright() <span class="c-kw">as</span> pw:
+    browser = pw.chromium.launch(headless=<span class="c-kw">True</span>)
+    page = browser.new_page(
+        viewport={<span class="c-str">"width"</span>: <span class="c-num">1080</span>, <span class="c-str">"height"</span>: <span class="c-num">1080</span>},
+        device_scale_factor=<span class="c-num">2</span>)
+    <span class="c-kw">for</span> ad <span class="c-kw">in</span> ads:
+        page.goto(ad.as_uri())
+        page.screenshot(path=out / <span class="c-str">f"{ad.stem}.png"</span>)</code></pre>
+          </div>
+        </div>
+
+        <div class="panel">
+          <span class="panel-num" aria-hidden="true">05</span>
+          <div class="panel-body">
+            <h3>Iterate on performance</h3>
+            <p>The ads go live, the numbers come back, the series evolves. Same motif, tightened until the data says stop.</p>
+          </div>
+          <div class="panel-visual">
+            <div class="iter-strip" id="iterStrip"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="orn" aria-hidden="true"><span>&#8258;</span></div>
+
+  <!-- COMPARE -->
+  <section class="compare-section">
+    <h2 class="sec-giant sec-center">V1 <em>vs.</em> V2</h2>
+    <p class="compare-lede">Same report ad, one round of feedback and live data later. Drag it.</p>
+    <div class="compare" id="compare" aria-label="Before and after comparison of ad versions">
+      <img class="compare-img compare-after" src="assets/ads/gmw_geldzugriffs_ads_1x1__gmw_geldzugriffs-report_v2-01_4-ebenen-modell_1080x1080.jpg" alt="Version 2 of the GeldMehrWert report ad">
+      <div class="compare-clip">
+        <img class="compare-img" src="assets/ads/gmw_geldzugriffs_ads_1x1__gmw_geldzugriffs-report_01_4-ebenen-modell_1080x1080.jpg" alt="Version 1 of the GeldMehrWert report ad">
+      </div>
+      <div class="compare-handle" aria-hidden="true"><span></span></div>
+      <span class="compare-tag compare-tag-l" aria-hidden="true">v1</span>
+      <span class="compare-tag compare-tag-r" aria-hidden="true">v2</span>
+      <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Reveal version 1 or version 2">
+    </div>
+  </section>
+
+  <!-- MOTION -->
+  <section class="motion" id="motion">
+    <h2 class="sec-giant">It also<br><em>moves.</em></h2>
+    <p class="motion-lede">Motion ads built the same way as the statics: designed frame by frame in code, shot by a headless browser, cut into reels.</p>
+    <div class="motion-grid">
+      <figure class="mcard mcard-tall">
+        <video src="assets/motion/ami-reel.mp4" poster="assets/motion/ami-reel-poster.jpg" muted loop playsinline preload="none" data-autoplay></video>
+        <figcaption>webinar profit booster, 9:16 reel</figcaption>
+      </figure>
+      <figure class="mcard">
+        <video src="assets/motion/uneq-ad3.mp4" poster="assets/motion/uneq-ad3-poster.jpg" muted loop playsinline preload="none" data-autoplay></video>
+        <figcaption>uneq, animated static</figcaption>
+      </figure>
+      <figure class="mcard mcard-tall">
+        <video src="assets/motion/funnel-reel.mp4" poster="assets/motion/funnel-reel-poster.jpg" muted loop playsinline preload="none" data-autoplay></video>
+        <figcaption>funnel motion reel, built with claude</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="orn" aria-hidden="true"><span>&#10022;</span></div>
+
+  <!-- FUNNELS -->
+  <section class="funnels">
+    <h2 class="sec-giant">And the pages<br>behind the <em>click.</em></h2>
+    <p class="funnels-lede">Ads are half the funnel. I design and build the landing pages too: live, wired up, a/b-tested. Hover to scroll them.</p>
+    <div class="funnels-grid">
+      <figure class="fcard">
+        <div class="fcard-window"><img src="assets/funnels/comeback-days.jpg" alt="Comeback Days event landing page for Danny Kroll" loading="lazy"></div>
+        <figcaption>danny kroll, event funnel</figcaption>
+      </figure>
+      <figure class="fcard">
+        <div class="fcard-window"><img src="assets/funnels/abundance-high.jpg" alt="Abundance High masterclass landing page for Corinna Kehl" loading="lazy"></div>
+        <figcaption>corinna kehl, masterclass</figcaption>
+      </figure>
+      <figure class="fcard">
+        <div class="fcard-window"><img src="assets/funnels/umsatz-report.jpg" alt="Umsatz-Report lead magnet page for Flug zum Erfolg" loading="lazy"></div>
+        <figcaption>flug zum erfolg, lead magnet</figcaption>
+      </figure>
+      <figure class="fcard">
+        <div class="fcard-window"><img src="assets/funnels/apotheken-coach.jpg" alt="Apotheken Coach funnel landing page" loading="lazy"></div>
+        <figcaption>apotheken coach, workshop funnel</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="orn" aria-hidden="true"><span>&#10087;</span></div>
+
+  <!-- PERSONAL / INSTAGRAM -->
+  <section class="personal" id="personal">
+    <h2 class="sec-giant">Off the<br><em>clock</em></h2>
+    <p class="personal-lede">Identities, posters and print experiments. No performance targets, just taste practice. The full archive lives on <a href="https://www.instagram.com/julian.lanz.svg/" target="_blank" rel="noopener">@julian.lanz.svg</a>.</p>
+
+    <article class="project">
+      <header class="project-head">
+        <h3 class="project-title">yantra studio</h3>
+        <span class="dots" aria-hidden="true"></span>
+        <p class="project-meta">brand identity, budapest</p>
+      </header>
+      <p class="project-desc">A full identity for a Budapest design studio: mark, pattern system, palette, print, signage, and everything the brand touches on its way through the city.</p>
+      <div class="accordion" aria-label="Yantra Studio brand identity gallery">
+        <figure class="acc"><img src="assets/projects/pdf-p001.jpg" alt="Yantra Studio mark burned into wood" loading="lazy"><figcaption>the mark</figcaption></figure>
+        <figure class="acc"><img src="assets/projects/pdf-p004.jpg" alt="Yantra color palette over desert imagery" loading="lazy"><figcaption>palette</figcaption></figure>
+        <figure class="acc"><img src="assets/projects/pdf-p013.jpg" alt="Brand pattern wrapped on a black van" loading="lazy"><figcaption>pattern van</figcaption></figure>
+        <figure class="acc"><img src="assets/projects/pdf-p010.jpg" alt="Stationery mockups" loading="lazy"><figcaption>stationery</figcaption></figure>
+        <figure class="acc"><img src="assets/projects/pdf-p016.jpg" alt="Yantra signage on a wall" loading="lazy"><figcaption>signage</figcaption></figure>
+        <figure class="acc"><img src="assets/projects/pdf-p018.jpg" alt="Business cards laid out as a checkerboard" loading="lazy"><figcaption>the cards</figcaption></figure>
+        <figure class="acc"><img src="assets/projects/pdf-p021.jpg" alt="Tote bag with Yantra mark" loading="lazy"><figcaption>the tote</figcaption></figure>
+      </div>
+      <div class="mosaic mosaic-slim">
+        <figure class="mz"><img src="assets/projects/pdf-p009.jpg" alt="Texture and imagery board" loading="lazy"></figure>
+        <figure class="mz"><img src="assets/personal/ig-08.jpg" alt="Yantra Studio ceramic mug" loading="lazy"></figure>
+        <figure class="mz"><img src="assets/personal/ig-06.jpg" alt="Yantra banners between stone columns" loading="lazy"></figure>
+        <figure class="mz"><img src="assets/projects/pdf-p003.jpg" alt="Yantra posters in frames" loading="lazy"></figure>
+      </div>
+    </article>
+
+    <article class="project">
+      <header class="project-head">
+        <h3 class="project-title">up and down</h3>
+        <span class="dots" aria-hidden="true"></span>
+        <p class="project-meta">theatre play identity</p>
+      </header>
+      <div class="project-feature">
+        <figure class="project-hero tilt" id="tiltCard"><img src="assets/updown/mockup-fence.jpg" alt="Up and Down poster zip-tied to a fence in front of the skyline" loading="lazy"></figure>
+        <p class="project-desc">Identity and full campaign for an English-language contemporary theatre play in Budapest: poster, stickers and a social kit. Loud red, riso blue, collaged faces, and a scan-here block that actually got scanned.</p>
+      </div>
+      <div class="accordion accordion-tall" aria-label="Up and Down campaign gallery">
+        <figure class="acc"><img src="assets/updown/poster.jpg" alt="Up and Down final poster artwork" loading="lazy"><figcaption>the poster</figcaption></figure>
+        <figure class="acc"><img src="assets/updown/mockup-sticker-2.jpg" alt="Two Up and Down stickers on paper" loading="lazy"><figcaption>the stickers</figcaption></figure>
+        <figure class="acc"><img src="assets/updown/mockup-phones.jpg" alt="Event page and Instagram profile on two phones" loading="lazy"><figcaption>the socials</figcaption></figure>
+        <figure class="acc"><img src="assets/personal/ig-07.jpg" alt="Framed Up and Down poster leaning on a chair" loading="lazy"><figcaption>framed</figcaption></figure>
+        <figure class="acc"><img src="assets/updown/mockup-sticker-1.jpg" alt="Single Up and Down sticker, slightly worn" loading="lazy"><figcaption>worn in</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="project">
+      <header class="project-head">
+        <h3 class="project-title">paper works</h3>
+        <span class="dots" aria-hidden="true"></span>
+        <p class="project-meta">posters, marks and print bits</p>
+      </header>
+      <div class="personal-grid">
+        <figure class="pcard">
+          <img src="assets/personal/ig-01.jpg" alt="Julian Lanz neue letterhead, indigo riso print on paper" loading="lazy">
+          <figcaption>the letterhead</figcaption>
+        </figure>
+        <figure class="pcard">
+          <img src="assets/personal/ig-02.jpg" alt="Dinner with friends poster" loading="lazy">
+          <figcaption>dinner with friends</figcaption>
+        </figure>
+        <figure class="pcard">
+          <img src="assets/personal/ig-03.jpg" alt="Espresso macchiato poster from the Harsfa Utca series" loading="lazy">
+          <figcaption>espresso macchiato</figcaption>
+        </figure>
+        <figure class="pcard">
+          <img src="assets/personal/ig-05.jpg" alt="Theatre play poster framed on a wall" loading="lazy">
+          <figcaption>theatre play unite</figcaption>
+        </figure>
+        <figure class="pcard">
+          <img src="assets/personal/ig-09.jpg" alt="Leopard mark stamped on a paper hangtag" loading="lazy">
+          <figcaption>the leopard mark</figcaption>
+        </figure>
+        <figure class="pcard">
+          <img src="assets/personal/ig-10.jpg" alt="Embossed Julian Lanz business card" loading="lazy">
+          <figcaption>embossed cards</figcaption>
+        </figure>
+      </div>
+    </article>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <h2 class="sec-giant about-giant">I don't stop<br>at the <em>static.</em></h2>
+    <div class="about-grid">
+      <div class="about-left">
+        <figure class="about-photo" id="aboutPortrait">
+          <img src="assets/portrait.jpg" alt="Portrait of Julian Lanz">
+        </figure>
+      </div>
+      <div class="about-side">
+        <p class="about-name" aria-hidden="true">julian</p>
+        <p class="about-body">Creative designer, building creatives for coaches and personal brands across the DACH market. My tools change per project, my standard doesn't: if it ships, it converts and it looks right.</p>
+        <p class="about-body about-body-2">Classically trained first: design school, then years in the full Adobe suite until every tool sat in muscle memory. AI came later in my career, built on top of that foundation. I don't prompt instead of knowing the craft, I prompt because I know it.</p>
+        <p class="about-list">static ad systems&nbsp;/ reels and video pipelines&nbsp;/ landing page design&nbsp;/ brand and ci extraction&nbsp;/ ai image direction&nbsp;/ render automation</p>
+        <div class="toolbox">
+          <span class="toolbox-label">the toolbox</span>
+          <span class="tool" title="Adobe Photoshop">Ps</span>
+          <span class="tool" title="Adobe Illustrator">Ai</span>
+          <span class="tool" title="Adobe InDesign">Id</span>
+          <span class="tool" title="Adobe After Effects">Ae</span>
+          <span class="tool" title="Adobe Premiere Pro">Pr</span>
+          <span class="tool" title="Adobe Lightroom">Lr</span>
+          <span class="tool tool-icon" title="Figma"><img src="assets/tools/figma.svg" alt="Figma"></span>
+          <span class="tool" title="Higgsfield">Hf</span>
+          <span class="tool tool-icon" title="Claude"><img src="assets/tools/claude.svg" alt="Claude"></span>
+        </div>
+      </div>
+      <div class="about-journey">
+        <div class="journey" id="journey">
+          <svg class="map" viewBox="0 0 420 300" role="img" aria-label="Map of the route: near Frankfurt, Berlin, Budapest, Cologne">
+            <g class="map-grid" aria-hidden="true">
+              <line x1="0" y1="60" x2="420" y2="60"/><line x1="0" y1="120" x2="420" y2="120"/>
+              <line x1="0" y1="180" x2="420" y2="180"/><line x1="0" y1="240" x2="420" y2="240"/>
+              <line x1="70" y1="0" x2="70" y2="300"/><line x1="140" y1="0" x2="140" y2="300"/>
+              <line x1="210" y1="0" x2="210" y2="300"/><line x1="280" y1="0" x2="280" y2="300"/>
+              <line x1="350" y1="0" x2="350" y2="300"/>
+            </g>
+            <g class="map-deg" aria-hidden="true">
+              <text x="6" y="56">52&#176;n</text>
+              <text x="6" y="236">48&#176;n</text>
+              <text x="128" y="295">10&#176;e</text>
+              <text x="338" y="295">17&#176;e</text>
+            </g>
+            <g class="map-river" aria-hidden="true">
+              <path d="M 48,276 Q 62,205 69,152 Q 56,122 30,105 Q 8,82 -2,56" fill="none"/>
+              <path d="M 96,240 Q 180,214 242,221 Q 305,233 372,266 Q 392,276 412,290" fill="none"/>
+              <text x="52" y="196" transform="rotate(-78 52 196)">rhine</text>
+              <text x="196" y="216">danube</text>
+            </g>
+            <g class="map-compass" aria-hidden="true">
+              <text x="398" y="30" text-anchor="middle">&#10022;</text>
+              <text class="map-n" x="398" y="14" text-anchor="middle">n</text>
+            </g>
+            <g class="map-scale" aria-hidden="true">
+              <line x1="14" y1="272" x2="98" y2="272"/>
+              <line x1="14" y1="268" x2="14" y2="276"/>
+              <line x1="98" y1="268" x2="98" y2="276"/>
+              <text x="56" y="265" text-anchor="middle">200 km</text>
+            </g>
+            <path class="route" pathLength="1" d="M 77,148 Q 150,44 211,27 Q 332,84 371,268 Q 190,258 30,106" fill="none"/>
+            <g class="stop" data-stop="0"><circle cx="77" cy="148" r="6"/><text x="88" y="164">near frankfurt</text></g>
+            <g class="stop" data-stop="1"><circle cx="211" cy="27" r="6"/><text x="222" y="22">berlin</text></g>
+            <g class="stop" data-stop="2"><circle cx="371" cy="268" r="6"/><text x="360" y="288" text-anchor="end">budapest</text></g>
+            <g class="stop" data-stop="3"><circle cx="30" cy="106" r="6"/><text x="41" y="98">cologne</text></g>
+          </svg>
+          <ul class="menu-legend">
+            <li data-stop="0"><span class="place">near frankfurt</span><span class="dots" aria-hidden="true"></span><span class="what">grew up in a small town, drawing on everything</span></li>
+            <li data-stop="1"><span class="place">berlin</span><span class="dots" aria-hidden="true"></span><span class="what">design school, left with a design degree</span></li>
+            <li data-stop="2"><span class="place">budapest</span><span class="dots" aria-hidden="true"></span><span class="what">branding projects with yantra, a design studio</span></li>
+            <li data-stop="3"><span class="place">cologne</span><span class="dots" aria-hidden="true"></span><span class="what">now, working remote for automadeit</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <a class="footer-cta" href="https://www.instagram.com/julian.lanz.svg/" target="_blank" rel="noopener">
+    <span class="footer-giant">Say <em>hi</em></span>
+    <span class="footer-arrow" aria-hidden="true">&#8599;</span>
+  </a>
+  <div class="footer-links">
+    <a href="https://www.instagram.com/julian.lanz.svg/" target="_blank" rel="noopener">instagram&nbsp;&#8599;</a>
+    <a href="https://www.linkedin.com/in/julian-lanzgraphicdesign" target="_blank" rel="noopener">linkedin&nbsp;&#8599;</a>
+  </div>
+  <p class="footer-fine">Julian Lanz, 2026. Every ad on this page is real client work, designed and shipped by me.</p>
+</footer>
+
+<!-- LIGHTBOX -->
+<dialog class="lightbox" id="lightbox">
+  <button class="lb-close" type="button" aria-label="Close">&times;</button>
+  <button class="lb-nav lb-prev" type="button" aria-label="Previous ad">&larr;</button>
+  <figure class="lb-figure">
+    <img class="lb-img" src="" alt="">
+    <figcaption class="lb-caption"></figcaption>
+  </figure>
+  <button class="lb-nav lb-next" type="button" aria-label="Next ad">&rarr;</button>
+</dialog>
+
+<script src="js/site.js?v=10"></script>
+</body>
+</html>
