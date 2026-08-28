@@ -254,6 +254,42 @@
   );
   vids.forEach((v) => vidObs.observe(v));
 
+  /* ---------- hero leopard: composite each frame onto the page color ----------
+     iOS does not blend CSS over <video> layers, so we do the math in canvas:
+     draw the frame, lift the whites past 255 (additive pass), then multiply
+     the exact page cream on top. Paper becomes the page, ink stays indigo. */
+  const leoVideo = document.querySelector(".leo-src");
+  const leoCanvas = document.querySelector(".leo-canvas");
+  if (leoVideo && leoCanvas) {
+    const ctx = leoCanvas.getContext("2d");
+    const cream = getComputedStyle(document.documentElement).getPropertyValue("--bg").trim() || "#f9f7ee";
+    let running = false;
+    const draw = () => {
+      // crop the clip's paper fold at top and bottom edges
+      const cropY = Math.round(leoVideo.videoHeight * 0.05);
+      const srcH = leoVideo.videoHeight - cropY * 2;
+      if (leoVideo.videoWidth && leoCanvas.width !== leoVideo.videoWidth) {
+        leoCanvas.width = leoVideo.videoWidth;
+        leoCanvas.height = srcH;
+      }
+      if (leoCanvas.width) {
+        ctx.globalCompositeOperation = "source-over";
+        ctx.globalAlpha = 1;
+        ctx.drawImage(leoVideo, 0, cropY, leoVideo.videoWidth, srcH, 0, 0, leoCanvas.width, leoCanvas.height);
+        ctx.globalCompositeOperation = "lighter";
+        ctx.globalAlpha = 0.3; // ~x1.3 brightness: the paper clips to clean white
+        ctx.drawImage(leoVideo, 0, cropY, leoVideo.videoWidth, srcH, 0, 0, leoCanvas.width, leoCanvas.height);
+      }
+      if (running) requestAnimationFrame(draw);
+    };
+    leoVideo.addEventListener("play", () => {
+      if (!running) { running = true; requestAnimationFrame(draw); }
+    });
+    leoVideo.addEventListener("pause", () => { running = false; });
+    // paint the first frame even before autoplay kicks in
+    leoVideo.addEventListener("loadeddata", () => { running || draw(); }, { once: true });
+  }
+
   /* ---------- up & down: 3d tilt toward the cursor ---------- */
   const tiltCard = document.getElementById("tiltCard");
   if (tiltCard && !reduceMotion && matchMedia("(hover: hover)").matches) {

@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=29">
+<link rel="stylesheet" href="css/site.css?v=31">
 </head>
 <body>
 
@@ -28,7 +28,8 @@
   <!-- HERO: giant staggered type + cursor image trail -->
   <section class="hero">
     <div class="hero-leo" aria-hidden="true">
-      <video src="assets/motion/leopard-walk.mp4" muted loop playsinline preload="auto" data-autoplay></video>
+      <video class="leo-src" src="assets/motion/leopard-walk.mp4" muted loop playsinline preload="auto" data-autoplay></video>
+      <canvas class="leo-canvas"></canvas>
     </div>
     <div class="trail-layer" id="trailLayer" aria-hidden="true"></div>
     <hr class="hero-rule" aria-hidden="true">
@@ -403,6 +404,6 @@
   <button class="lb-nav lb-next" type="button" aria-label="Next ad">&rarr;</button>
 </dialog>
 
-<script src="js/site.js?v=24"></script>
+<script src="js/site.js?v=32"></script>
 </body>
 </html>
