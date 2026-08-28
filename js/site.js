@@ -263,6 +263,7 @@
   if (leoVideo && leoCanvas) {
     const ctx = leoCanvas.getContext("2d");
     const cream = getComputedStyle(document.documentElement).getPropertyValue("--bg").trim() || "#f9f7ee";
+    const desktopMq = matchMedia("(min-width: 901px)");
     let running = false;
     const draw = () => {
       // crop the clip's paper fold at top and bottom edges
@@ -279,6 +280,13 @@
         ctx.globalCompositeOperation = "lighter";
         ctx.globalAlpha = 0.3; // ~x1.3 brightness: the paper clips to clean white
         ctx.drawImage(leoVideo, 0, cropY, leoVideo.videoWidth, srcH, 0, 0, leoCanvas.width, leoCanvas.height);
+        if (desktopMq.matches) {
+          // desktop: white becomes the exact page cream, fully seamless
+          ctx.globalCompositeOperation = "multiply";
+          ctx.globalAlpha = 1;
+          ctx.fillStyle = cream;
+          ctx.fillRect(0, 0, leoCanvas.width, leoCanvas.height);
+        }
       }
       if (running) requestAnimationFrame(draw);
     };

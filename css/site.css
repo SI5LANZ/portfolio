@@ -1334,13 +1334,12 @@ em {
   pointer-events: none;
 }
 .hero-leo {
-  /* a deliberate framed plate: clean white mat, double rule, stamp inside */
   position: relative;
-  background: #fdfdfb;
-  border: 1px solid var(--ink);
-  outline: 1px solid var(--ink);
-  outline-offset: -7px;
-  padding: 6px;
+  pointer-events: none;
+}
+@media (min-width: 901px) {
+  /* desktop: the stamp sits seamlessly on the page (canvas multiplies the cream) */
+  .hero-leo { opacity: .68; }
 }
 /* the video is only a pixel source; the canvas composites each frame
    onto the exact page color (iOS ignores CSS blending on video layers) */
@@ -1356,11 +1355,13 @@ em {
   display: block;
 }
 @media (max-width: 900px) {
+  /* mobile: the white plate is intentional; the headline crops into it */
   .hero-leo {
-    width: min(76vw, 340px);
+    width: min(78vw, 350px);
     align-self: center;
-    margin: 0 auto auto;
+    margin: 0 auto -3.2rem;
   }
+  .hero-type { position: relative; z-index: 2; }
 }
 
 /* ---------- Toolbox ---------- */
