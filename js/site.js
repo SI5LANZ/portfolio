@@ -1,7 +1,8 @@
 /* Julian Lanz portfolio */
 (async function () {
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const SAMPLE = 600;      // tiles shown at once in "All"
+  // phones get a much shorter wall; desktop keeps the full flood
+  const SAMPLE = matchMedia("(max-width: 720px)").matches ? 150 : 600;
   const PILLS = 10;        // client filters shown
 
   /* ---------- hero entrance stagger ---------- */
