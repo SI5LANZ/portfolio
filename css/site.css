@@ -485,7 +485,7 @@ em {
   justify-items: center;
 }
 .compare-section .sec-giant {
-  margin-bottom: -.55em; /* the slider climbs into the headline */
+  margin-bottom: -.22em; /* the slider only grazes the headline */
   position: relative;
   z-index: 0;
 }
@@ -1428,4 +1428,41 @@ em {
   }
   .accordion .acc:first-child, .accordion-tall .acc:first-child { min-height: 0; }
   .acc figcaption { position: static; margin-top: .4rem; color: var(--ink-soft); text-shadow: none; opacity: 1; transform: none; }
+}
+
+/* ---------- Hero desktop: two columns, type left, leopard right ---------- */
+@media (min-width: 901px) {
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    grid-template-rows: 1fr auto auto;
+    column-gap: clamp(1rem, 3vw, 3rem);
+    align-items: end;
+  }
+  .hero-rule { grid-column: 1; grid-row: 1; align-self: end; }
+  .hero-type {
+    grid-column: 1; grid-row: 2;
+    font-size: clamp(3.8rem, 13vw, 12.5rem);
+  }
+  .hero-leo {
+    grid-column: 2; grid-row: 1 / span 2;
+    align-self: center;
+    justify-self: end;
+    width: min(100%, 500px);
+    margin: 0;
+  }
+  .hero-foot { grid-column: 1 / -1; grid-row: 3; margin-top: 1.4rem; }
+}
+
+/* ---------- Mobile hero: match the ground to the clip's paper ----------
+   iOS ignores mix-blend-mode on <video>, so instead of blending we paint
+   the hero in the video's exact paper color and show the clip untouched. */
+@media (max-width: 900px) {
+  .hero-leo video {
+    mix-blend-mode: normal;
+    opacity: 1;
+    filter: brightness(1.32) contrast(1.24) sepia(.16) saturate(1.15);
+    -webkit-mask-image: radial-gradient(70% 64% at 50% 50%, #000 50%, transparent 82%);
+    mask-image: radial-gradient(70% 64% at 50% 50%, #000 50%, transparent 82%);
+  }
 }
