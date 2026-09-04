@@ -328,12 +328,11 @@ em {
   transition: transform .38s var(--ease-out), box-shadow .38s var(--ease-out), opacity .3s;
 }
 .tile.hidden { display: none; }
+/* no hover zoom: a click opens the lightbox; hover only hints */
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .wall:hover .tile img { opacity: .35; }
   .wall .tile:hover img {
-    opacity: 1;
-    transform: scale(5);
-    box-shadow: 0 26px 80px rgba(20, 22, 90, .45);
+    transform: scale(1.12);
+    box-shadow: 0 6px 18px rgba(20, 22, 90, .25);
   }
   .tile:hover { z-index: 20; }
 }

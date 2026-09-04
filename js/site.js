@@ -22,6 +22,8 @@
   }
 
   const displayName = (c) => c.charAt(0).toUpperCase() + c.slice(1);
+  // small 220px versions for the grid and the cursor trail; full size only in the lightbox
+  const thumbOf = (f) => f.replace("assets/work/", "assets/thumbs/");
   const shuffled = (arr) => [...arr].sort(() => Math.random() - 0.5);
 
   /* ---------- the wall (Julian's own statics, sampled) ---------- */
@@ -57,7 +59,7 @@
       b.type = "button";
       b.dataset.index = work.indexOf(a);
       b.setAttribute("aria-label", `${displayName(a.client)}: ${a.name}`);
-      b.innerHTML = `<img src="${a.file}" alt="Ad for ${displayName(a.client)}" loading="lazy" decoding="async">`;
+      b.innerHTML = `<img src="${thumbOf(a.file)}" alt="Ad for ${displayName(a.client)}" loading="lazy" decoding="async" width="220" height="220">`;
       frag.appendChild(b);
     });
     wall.replaceChildren(frag);
@@ -92,16 +94,6 @@
     );
     pixelObs.observe(wall);
   }
-
-  // keep hover zoom inside the viewport: set transform-origin per tile position
-  wall.addEventListener("pointerover", (e) => {
-    const tile = e.target.closest(".tile");
-    if (!tile) return;
-    const r = tile.getBoundingClientRect();
-    const x = r.left < 140 ? "left" : window.innerWidth - r.right < 140 ? "right" : "center";
-    const y = r.top < 200 ? "top" : window.innerHeight - r.bottom < 160 ? "bottom" : "center";
-    tile.querySelector("img").style.transformOrigin = `${x} ${y}`;
-  });
 
   /* ---------- filters ---------- */
   const filterWrap = document.querySelector(".wall-filters");
@@ -198,7 +190,7 @@
   const trailLayer = document.getElementById("trailLayer");
   const hero = document.querySelector(".hero");
   if (trailLayer && !reduceMotion && matchMedia("(hover: hover)").matches) {
-    const trailPool = shuffled(work).slice(0, 24).map((a) => a.file);
+    const trailPool = shuffled(work).slice(0, 24).map((a) => thumbOf(a.file));
     // warm the cache so the first trail images do not pop in late
     trailPool.slice(0, 8).forEach((f) => { const i = new Image(); i.src = f; });
     let last = { x: -999, y: -999 };
@@ -236,6 +228,25 @@
   const setPos = (v) => compare.style.setProperty("--pos", `${v}%`);
   setPos(range.value);
   range.addEventListener("input", () => setPos(range.value));
+
+  /* ---------- motion: attach the video source only when it comes close ----------
+     the reels weigh ~27 MB together; with a src set up front the browser starts
+     pulling them at page load. Poster shows until then, autoplay takes over after. */
+  const lazyVids = document.querySelectorAll("video[data-src]");
+  const srcObs = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((en) => {
+        if (!en.isIntersecting) return;
+        const v = en.target;
+        v.src = v.dataset.src;
+        v.removeAttribute("data-src");
+        v.load();
+        srcObs.unobserve(v);
+      });
+    },
+    { rootMargin: "700px 0px" }
+  );
+  lazyVids.forEach((v) => srcObs.observe(v));
 
   /* ---------- motion: play only while in view ---------- */
   const vids = document.querySelectorAll("[data-autoplay]");
