@@ -1344,13 +1344,19 @@ em {
 /* the video is only a pixel source; the canvas composites each frame
    onto the exact page color (iOS ignores CSS blending on video layers) */
 .hero-leo video.leo-src {
+  /* full size behind the canvas: WebKit refuses to autoplay videos it
+     considers invisible (tiny or transparent), so keep it a real layer */
   position: absolute;
-  width: 2px;
-  height: 2px;
-  opacity: 0.01;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
   pointer-events: none;
 }
 .leo-canvas {
+  position: relative;
+  z-index: 1;
   width: 100%;
   display: block;
 }

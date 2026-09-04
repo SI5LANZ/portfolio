@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=33">
+<link rel="stylesheet" href="css/site.css?v=34">
 </head>
 <body>
 
@@ -40,7 +40,7 @@
   <!-- HERO: giant staggered type + cursor image trail -->
   <section class="hero">
     <div class="hero-leo" aria-hidden="true">
-      <video class="leo-src" src="assets/motion/leopard-walk.mp4" muted loop playsinline preload="auto" data-autoplay></video>
+      <video class="leo-src" src="assets/motion/leopard-walk.mp4" autoplay muted loop playsinline preload="auto" data-autoplay></video>
       <canvas class="leo-canvas"></canvas>
     </div>
     <div class="trail-layer" id="trailLayer" aria-hidden="true"></div>
@@ -190,15 +190,15 @@
     <p class="motion-lede">Motion ads built the same way as the statics: designed frame by frame in code, shot by a headless browser, cut into reels.</p>
     <div class="motion-grid">
       <figure class="mcard mcard-tall">
-        <video src="assets/motion/ami-reel.mp4" poster="assets/motion/ami-reel-poster.jpg" muted loop playsinline preload="none" data-autoplay></video>
+        <video src="assets/motion/ami-reel.mp4" poster="assets/motion/ami-reel-poster.jpg" autoplay muted loop playsinline preload="metadata" data-autoplay></video>
         <figcaption>webinar profit booster, 9:16 reel</figcaption>
       </figure>
       <figure class="mcard">
-        <video src="assets/motion/uneq-ad3.mp4" poster="assets/motion/uneq-ad3-poster.jpg" muted loop playsinline preload="none" data-autoplay></video>
+        <video src="assets/motion/uneq-ad3.mp4" poster="assets/motion/uneq-ad3-poster.jpg" autoplay muted loop playsinline preload="metadata" data-autoplay></video>
         <figcaption>uneq, animated static</figcaption>
       </figure>
       <figure class="mcard mcard-tall">
-        <video src="assets/motion/funnel-reel.mp4" poster="assets/motion/funnel-reel-poster.jpg" muted loop playsinline preload="none" data-autoplay></video>
+        <video src="assets/motion/funnel-reel.mp4" poster="assets/motion/funnel-reel-poster.jpg" autoplay muted loop playsinline preload="metadata" data-autoplay></video>
         <figcaption>funnel motion reel, built with claude</figcaption>
       </figure>
     </div>
@@ -416,6 +416,6 @@
   <button class="lb-nav lb-next" type="button" aria-label="Next ad">&rarr;</button>
 </dialog>
 
-<script src="js/site.js?v=33"></script>
+<script src="js/site.js?v=34"></script>
 </body>
 </html>

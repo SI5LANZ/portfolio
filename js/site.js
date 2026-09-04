@@ -294,8 +294,12 @@
       if (!running) { running = true; requestAnimationFrame(draw); }
     });
     leoVideo.addEventListener("pause", () => { running = false; });
-    // paint the first frame even before autoplay kicks in
-    leoVideo.addEventListener("loadeddata", () => { running || draw(); }, { once: true });
+    // always paint a still as soon as frames exist, so the stamp shows even
+    // where autoplay is blocked (iOS low power mode, data saver)
+    const paintStill = () => { if (!running) draw(); };
+    if (leoVideo.readyState >= 2) paintStill();
+    ["loadeddata", "canplay", "seeked"].forEach((ev) => leoVideo.addEventListener(ev, paintStill));
+    if (leoVideo.paused) leoVideo.play().catch(() => { paintStill(); });
   }
 
   /* ---------- up & down: 3d tilt toward the cursor ---------- */
