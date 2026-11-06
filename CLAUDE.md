@@ -78,7 +78,8 @@ hero (Typo + laufender Leopard) → marquee → **worlds** (Yantra-Accordion + M
   Projekte bekommen nur die Speisekarten-Zeile (`.project-head`: Titel ···· Meta) + beschreibenden Text; die Elemente erzählen.
   Große `.sec-giant`-Zeilen nur noch im Hero, bei „a vs. b" und im About.
 - **Keine Brand-Asset-Boards** (Farbchips, Type-Specimen, Logo-Konstruktion) in Projekten – wirkt zusammengewürfelt. Lieber wenige, ruhige Finals, editorial.
-- Yantra-Spreads haben dunkle Seitenränder → `.accordion-yantra` zoom-cropt (scale 1.32); Seiten mit schwarzen Titelblöcken (p013 Van, p018 Dokumente) nicht im Accordion verwenden.
+- Yantra ist KEIN Accordion mehr (16:9-Spreads in Hochkant-Streifen = Text abgeschnitten, zusammengewürfelt), sondern `.ystack`: Spreads ganz oder auf ihren Fotoanteil gecroppt (`assets/projects/y-*.jpg` per sips aus pdf-pNNN), Rhythmus Vollbreite / Zweierreihe. Nie durch Text croppen; Deck-Seiten mit Titel+Fließtext (p004, p009, p017-Text, p018) nicht zeigen.
+- Endo: keine Dubletten (slide-1≈post-1, post-4≈slide-6, slide-5≈post-3) – Accordion zeigt 6 unterschiedliche Motive, kein Trio darunter.
 - Textur ja (Papierkorn, Büttenpapier), aber nie als Rahmen-Effekt.
 - Copy: kein „for coaches" – „for personal brands across DACH".
 

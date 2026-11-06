@@ -1632,3 +1632,15 @@ em {
   .accordion-yantra .acc { overflow: hidden; }
   .accordion-yantra .acc img { aspect-ratio: 16 / 10; object-fit: cover; object-position: 50% 48%; transform: scale(1.28); }
 }
+
+/* ---------- Yantra: editorial stack, nothing cropped through text ---------- */
+.ystack { margin-top: 1.6rem; display: grid; gap: clamp(.8rem, 2vw, 1.4rem); }
+.ys { margin: 0; }
+.ys img { width: 100%; display: block; }
+.ys-row { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(.8rem, 2vw, 1.4rem); align-items: stretch; }
+.ys-row .ys img { height: 100%; object-fit: cover; aspect-ratio: 16 / 10; }
+.ys-row-b .ys img { aspect-ratio: 4 / 3; }
+@media (max-width: 720px) {
+  .ys-row { grid-template-columns: 1fr; }
+  .ys-row .ys img { aspect-ratio: auto; height: auto; }
+}
