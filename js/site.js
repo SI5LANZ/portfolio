@@ -2,7 +2,7 @@
 (async function () {
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
   // phones get a much shorter wall; desktop keeps the full flood
-  const SAMPLE = matchMedia("(max-width: 720px)").matches ? 150 : 600;
+  const SAMPLE = matchMedia("(max-width: 720px)").matches ? 120 : 360;
   const PILLS = 10;        // client filters shown
 
   /* ---------- hero entrance stagger ---------- */
@@ -177,6 +177,15 @@
   document.getElementById("systemGrid").innerHTML = gmw
     .map((a) => `<img src="${a.file}" alt="Layout from the GeldMehrWert report series" loading="lazy">`)
     .join("");
+
+  // the fleet: one series, many finals (process panel 03)
+  const fleet = document.getElementById("fleetGrid");
+  if (fleet) {
+    const flipperAll = work.filter((a) => a.client === "Flipper");
+    fleet.innerHTML = shuffled(flipperAll).slice(0, 24)
+      .map((a) => `<img src="${thumbOf(a.file)}" alt="Static from the Flipper series" loading="lazy">`)
+      .join("");
+  }
 
   const iterFiles = [
     ["assets/ads/gmw_geldzugriffs_ads_1x1__gmw_geldzugriffs-report_01_4-ebenen-modell_1080x1080.jpg", "v1"],

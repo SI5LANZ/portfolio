@@ -385,7 +385,7 @@ em {
 @media (prefers-reduced-motion: no-preference) and (min-width: 721px) {
   @supports (animation-timeline: view()) {
     .hpan {
-      height: 560vh;
+      height: 460vh;
       view-timeline: --hpan block;
     }
     .hpan-sticky {
@@ -1478,3 +1478,99 @@ em {
    iOS ignores mix-blend-mode on <video>, so instead of blending we paint
    the hero in the video's exact paper color and show the clip untouched. */
 
+
+/* ---------- Endo: lead case ---------- */
+.endo {
+  padding: clamp(5rem, 11vw, 8rem) clamp(1rem, 3vw, 2.5rem) clamp(3rem, 6vw, 5rem);
+  max-width: 1500px;
+  margin: 0 auto;
+}
+.endo-lede { color: var(--ink-soft); max-width: 60ch; margin-top: 1.4rem; font-size: 1.12rem; }
+.endo-feature {
+  margin-top: clamp(2rem, 5vw, 3.5rem);
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  grid-template-rows: auto auto;
+  gap: clamp(.8rem, 2vw, 1.4rem);
+}
+.endo-video { grid-row: 1 / span 2; margin: 0; }
+.endo-video video { width: 100%; display: block; aspect-ratio: 4 / 5; object-fit: cover; }
+.endo-still { margin: 0; overflow: hidden; }
+.endo-still img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.endo-still-a img { aspect-ratio: 6 / 5; }
+.endo-still-b img { aspect-ratio: 6 / 5; object-position: 50% 40%; }
+.endo-video figcaption {
+  margin-top: .7rem;
+  font-family: var(--font-serif);
+  font-variant: small-caps;
+  letter-spacing: .05em;
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+}
+.endo-acc { margin-top: clamp(1.5rem, 4vw, 2.5rem); }
+.endo-board {
+  margin-top: clamp(1.5rem, 4vw, 2.5rem);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, .9fr);
+  gap: clamp(.8rem, 2vw, 1.4rem);
+  align-items: start;
+}
+.eb { margin: 0; }
+.eb img { width: 100%; display: block; }
+.eb figcaption {
+  margin-top: .6rem;
+  font-family: var(--font-serif);
+  font-variant: small-caps;
+  letter-spacing: .05em;
+  font-size: 1.1rem;
+  color: var(--ink-soft);
+}
+.endo-posters {
+  margin-top: clamp(1.5rem, 4vw, 2.5rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1215fr) minmax(0, 1578fr);
+  gap: clamp(.8rem, 2vw, 1.4rem);
+}
+.endo-posters img { width: 100%; display: block; }
+@media (max-width: 900px) {
+  .endo-feature { grid-template-columns: 1fr 1fr; }
+  .endo-video { grid-column: 1 / -1; grid-row: 1; }
+  .endo-board { grid-template-columns: 1fr 1fr; }
+  .endo-posters { grid-template-columns: 1fr; }
+}
+
+/* ---------- Worlds (yantra, up & down) ---------- */
+.worlds {
+  padding: clamp(5rem, 11vw, 8rem) clamp(1rem, 3vw, 2.5rem);
+  max-width: 1500px;
+  margin: 0 auto;
+}
+.worlds-lede { color: var(--ink-soft); max-width: 52ch; margin-top: 1.4rem; font-size: 1.08rem; }
+
+/* ---------- Motion: four reels ---------- */
+.motion-grid-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: start;
+}
+.motion-grid-4 .mcard:nth-child(2) { transform: translateY(22px) rotate(-.8deg); }
+.motion-grid-4 .mcard:nth-child(3) { transform: rotate(.7deg); }
+.motion-grid-4 .mcard:nth-child(4) { transform: translateY(14px) rotate(-.5deg); }
+.motion-grid-4 .mcard video { aspect-ratio: 9 / 16; object-fit: cover; }
+@media (max-width: 900px) {
+  .motion-grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .motion-grid-4 .mcard { transform: none; }
+}
+
+/* ---------- Process: the fleet (no code anywhere) ---------- */
+.fleet-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 4px;
+  width: 100%;
+}
+.fleet-grid img { aspect-ratio: 1; object-fit: cover; width: 100%; display: block; }
+
+/* ---------- Compact wall ---------- */
+.sec-mid { font-size: clamp(2.6rem, 7.5vw, 7rem); }
+.wall-section { padding-top: clamp(3rem, 6vw, 5rem); }
+.wall-head .sec-mid { margin-bottom: 0; mix-blend-mode: normal; }

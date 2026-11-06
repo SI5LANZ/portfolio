@@ -49,8 +49,11 @@ tools/pdf_sheets.py     rendert PDF-Seiten via pdf.js in Playwright (kein popple
 tools/shoot_lps.py      Playwright-Full-Page-Shots von Landingpages (mit Scroll-Durchlauf für Reveal-Animationen)
 ```
 
-### Sections in Reihenfolge
-hero (Typo + laufender Leopard) → marquee (schräges Indigo-Band) → **the wall** (Statics-Grid, Filter, Shuffle, Lightbox) → **the ai part, honestly** (Prozess, desktop sideways-scroll, mobil vertikal) → **a vs. b** (Compare-Slider, Flipper-Paar) → **motion** (3 Reels) → **funnels** (4 LP-Shots, hover scrollt) → **off the clock** (Yantra-Accordion + Mosaik, Up & Down mit Tilt + Accordion, paper works) → **about** (Headline, Foto, „julian", Texte, Toolbox, Seekarten-Route) → footer (say hi, instagram, linkedin)
+### Sections in Reihenfolge (seit 2026-11-06: Creative Direction vorn, Paid Ads hinten)
+hero (Typo + laufender Leopard) → marquee → **endo** (Lead-Case: Clubroom-Teaser-Video, Metall-Stills, Accordion, Art-Direction-Board-Crops, Poster-Strips) → **more worlds** (Yantra-Accordion + Mosaik, Up & Down mit Tilt + Accordion) → **motion** (4 aktuelle Reels: APO Workshop/Report, UNEQ Trailer/Match-Cut) → **the ai part, honestly** (Prozess: 4 Panels, KEIN Code/Terminal mehr – Panel 03 „scale the series" = Fleet-Grid aus 24 Flipper-Thumbs) → **a vs. b** (Compare, Flipper) → **paid ads, the proof** (kompakte Wall, 360 Desktop / 120 mobil) → **funnels** → **off the clock** (nur noch paper works) → **about** → footer
+
+### Endo-Quellen
+`~/Desktop/Arbeit/endo/Art Direction 1.pdf` (EINE große Board-Seite → `assets/endo/board.jpg` 2600px, Crops `board-*.jpg` per sips), `~/Desktop/Arbeit/UNEQ/Ordner/endo/` (Insta-Posts, Slides, Backgrounds, Logos), `~/Downloads/endo – Clubroom animation 3.mp4` (→ assets/motion/endo-clubroom.mp4). Instagram: @weare.endo. Figma-Sandbox `u4bnooPXCPldbkpabV8UHG` nur erreichbar, wenn in der Figma-App „Enable Dev Mode MCP Server" aktiv ist.
 
 ## Designregeln (Julians Geschmack – bitte einhalten)
 
@@ -67,6 +70,9 @@ hero (Typo + laufender Leopard) → marquee (schräges Indigo-Band) → **the wa
 - **Wall:** kein Hover-Zoom, Klick öffnet Lightbox. Flipper = Lieblingsserie → erste Filter-Pill,
   alle Flipper-Statics immer im Sample. Mobil nur 150 Tiles (Scrollweg kurz halten).
 - Prozess-Beispiele aus GMW/Flipper, **nicht** die Yoga-Serien (findet Julian nicht schön).
+- **Keine Vibe-Coding-Indizien:** keine Fake-Terminals, keine Code-Blöcke, keine `<pre>`-Snippets als Deko.
+  Claude darf im Text als Werkzeug vorkommen (Prozess-Intro, Motion-Lede, Toolbox), aber nie als Optik.
+- Positionierung: **Creative Direction / Brand Worlds zuerst**, Paid Ads sind der Beleg weiter unten.
 - Textur ja (Papierkorn, Büttenpapier), aber nie als Rahmen-Effekt.
 - Copy: kein „for coaches" – „for personal brands across DACH".
 
@@ -91,7 +97,9 @@ hero (Typo + laufender Leopard) → marquee (schräges Indigo-Band) → **the wa
 
 ## Offen / Ideen
 
-- `assets/motion/ami-reel.mp4` ist 19,5 MB → auf ~3–4 MB (720p, 9:16) exportieren und austauschen.
+- Videos komprimieren geht lokal nicht (kein ffmpeg; avconvert vergrößert Dateien). Deshalb nur Finals ≤ ~17 MB
+  einbauen; der 121-MB-Tim-VSL (`Ami/Video-Ads/TimVSL-Cinematic 2026-11`) braucht erst einen HandBrake-Export (~5 MB).
+- Weitere Motion-Kandidaten (zu groß im Original): YIF Erfolgspyramide 01 (30 MB), VTR MatchCut 01 (19 MB), UNEQ 108 Ideen Explainer (97 MB).
 - Eigene Domain (z. B. julianlanz.design): Domain kaufen, dann CNAME in Pages + `og:url` anpassen.
 - Weitere Statics: Kundenordner → `python3 tools/curate_own.py`, dann Thumbs nachziehen
   (`sips -s format jpeg -s formatOptions 68 -Z 220 <src> --out assets/thumbs/<name>`), Manifest bleibt dedupliziert.

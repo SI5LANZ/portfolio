@@ -20,23 +20,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=35">
+<link rel="stylesheet" href="css/site.css?v=40">
 </head>
 <body>
 
 <header class="nav">
   <a class="nav-mark" href="#top">Julian&nbsp;Lanz&nbsp;<em>neue</em></a>
   <nav class="nav-links">
-    <a href="#wall">wall</a>
-    <a href="#process">process</a>
+    <a href="#work">work</a>
     <a href="#motion">motion</a>
-    <a href="#personal">personal</a>
+    <a href="#process">process</a>
+    <a href="#about">about</a>
     <a href="https://www.instagram.com/julian.lanz.svg/" target="_blank" rel="noopener">instagram</a>
   </nav>
 </header>
 
 <main id="top">
-
   <!-- HERO: giant staggered type + cursor image trail -->
   <section class="hero">
     <div class="hero-leo" aria-hidden="true">
@@ -51,7 +50,7 @@
       <span class="ht-row ht-r3" data-w>AI <em>second.</em></span>
     </h1>
     <div class="hero-foot">
-      <p class="hero-sub">Julian Lanz, multidisciplinary graphic designer. Machines make me fast. Taste makes it worth looking at.</p>
+      <p class="hero-sub">Julian Lanz, creative direction for brand worlds, campaigns and motion. Machines make me fast. Taste makes it worth looking at.</p>
       <p class="hero-hint" aria-hidden="true">move your cursor</p>
     </div>
   </section>
@@ -63,18 +62,120 @@
     </div>
   </div>
 
-  <!-- THE WALL -->
-  <section class="wall-section" id="wall">
-    <div class="wall-head">
-      <h2 class="sec-giant">The<br><em>wall</em></h2>
-      <p class="wall-lede"><span data-count>600</span> of <span data-total>3,623</span> statics I designed for personal brands across DACH. Click any tile to see it full size.</p>
-      <div class="wall-controls">
-        <div class="wall-filters" role="group" aria-label="Filter by client"></div>
-        <button class="tbtn" id="shuffleBtn" type="button">&#8635; Shuffle</button>
-      </div>
+  <!-- ENDO: lead case, creative direction -->
+  <section class="endo" id="work">
+    <div class="endo-head">
+      <h2 class="sec-giant">endo,<br>a night in <em>budapest.</em></h2>
+      <p class="endo-lede">Creative direction and identity for endo, a party series in Budapest. Brushed metal as the surface, a disco-ball orbit as the mark, Garamond italic as the voice. From the logo to invites, posters, socials and the clubroom teaser: one world, every touchpoint.</p>
     </div>
-    <div class="wall" id="wallGrid"></div>
+
+    <div class="endo-feature">
+      <figure class="endo-video">
+        <video data-src="assets/motion/endo-clubroom.mp4" poster="assets/motion/endo-clubroom-poster.jpg" autoplay muted loop playsinline preload="metadata" data-autoplay></video>
+        <figcaption>clubroom teaser</figcaption>
+      </figure>
+      <figure class="endo-still endo-still-a"><img src="assets/endo/board-metal.jpg" alt="endo wordmark in red on brushed metal" loading="lazy"></figure>
+      <figure class="endo-still endo-still-b"><img src="assets/endo/post-1.jpg" alt="endo mark in blue on chrome" loading="lazy"></figure>
+    </div>
+
+    <div class="accordion accordion-tall endo-acc" aria-label="endo designs">
+      <figure class="acc"><img src="assets/endo/slide-0.jpg" alt="endo logo, red, budapest 2026" loading="lazy"><figcaption>the mark</figcaption></figure>
+      <figure class="acc"><img src="assets/endo/slide-1.jpg" alt="endo logo in blue on brushed metal" loading="lazy"><figcaption>on metal</figcaption></figure>
+      <figure class="acc"><img src="assets/endo/post-4.jpg" alt="construction drawing of the endo mark" loading="lazy"><figcaption>construction</figcaption></figure>
+      <figure class="acc"><img src="assets/endo/slide-4.jpg" alt="endo red mark on steel" loading="lazy"><figcaption>steel</figcaption></figure>
+      <figure class="acc"><img src="assets/endo/slide-5.jpg" alt="endo wordmark cropped large on metal" loading="lazy"><figcaption>close</figcaption></figure>
+      <figure class="acc"><img src="assets/endo/post-2.jpg" alt="endo mark in red on grey" loading="lazy"><figcaption>on grey</figcaption></figure>
+    </div>
+
+    <div class="endo-board">
+      <figure class="eb"><img src="assets/endo/board-marks.jpg" alt="endo logo marks in blue and red" loading="lazy"><figcaption>the marks</figcaption></figure>
+      <figure class="eb"><img src="assets/endo/board-type.jpg" alt="type specimen: adobe garamond and playfair display italic" loading="lazy"><figcaption>the type</figcaption></figure>
+      <figure class="eb"><img src="assets/endo/board-palette.jpg" alt="palette: red, black, grey, vermilion, blue" loading="lazy"><figcaption>the palette</figcaption></figure>
+      <figure class="eb eb-tall"><img src="assets/endo/board-cocktail.jpg" alt="endo poster with a cocktail glass" loading="lazy"><figcaption>the invite</figcaption></figure>
+    </div>
+
+    <div class="endo-posters">
+      <img src="assets/endo/board-posters-a.jpg" alt="endo poster series: glasses, disco, plates" loading="lazy">
+      <img src="assets/endo/board-posters-b.jpg" alt="endo poster series: tray, elevator, disco ball, crowd" loading="lazy">
+    </div>
   </section>
+
+  <div class="orn" aria-hidden="true"><span>&#8258;</span></div>
+
+  <!-- WORLDS: more identities -->
+  <section class="worlds">
+    <h2 class="sec-giant">More<br><em>worlds.</em></h2>
+    <p class="worlds-lede">Two more identities that started as a feeling and ended as a system.</p>
+    <article class="project">
+      <header class="project-head">
+        <h3 class="project-title">yantra studio</h3>
+        <span class="dots" aria-hidden="true"></span>
+        <p class="project-meta">brand identity, budapest</p>
+      </header>
+      <p class="project-desc">A full identity for a Budapest design studio: mark, pattern system, palette, print, signage, and everything the brand touches on its way through the city.</p>
+      <div class="accordion" aria-label="Yantra Studio brand identity gallery">
+        <figure class="acc"><img src="assets/projects/pdf-p001.jpg" alt="Yantra Studio mark burned into wood" loading="lazy"><figcaption>the mark</figcaption></figure>
+        <figure class="acc"><img src="assets/projects/pdf-p004.jpg" alt="Yantra color palette over desert imagery" loading="lazy"><figcaption>palette</figcaption></figure>
+        <figure class="acc"><img src="assets/projects/pdf-p013.jpg" alt="Brand pattern wrapped on a black van" loading="lazy"><figcaption>pattern van</figcaption></figure>
+        <figure class="acc"><img src="assets/projects/pdf-p010.jpg" alt="Stationery mockups" loading="lazy"><figcaption>stationery</figcaption></figure>
+        <figure class="acc"><img src="assets/projects/pdf-p016.jpg" alt="Yantra signage on a wall" loading="lazy"><figcaption>signage</figcaption></figure>
+        <figure class="acc"><img src="assets/projects/pdf-p018.jpg" alt="Business cards laid out as a checkerboard" loading="lazy"><figcaption>the cards</figcaption></figure>
+        <figure class="acc"><img src="assets/projects/pdf-p021.jpg" alt="Tote bag with Yantra mark" loading="lazy"><figcaption>the tote</figcaption></figure>
+      </div>
+      <div class="mosaic mosaic-slim">
+        <figure class="mz"><img src="assets/projects/pdf-p009.jpg" alt="Texture and imagery board" loading="lazy"></figure>
+        <figure class="mz"><img src="assets/personal/ig-08.jpg" alt="Yantra Studio ceramic mug" loading="lazy"></figure>
+        <figure class="mz"><img src="assets/personal/ig-06.jpg" alt="Yantra banners between stone columns" loading="lazy"></figure>
+        <figure class="mz"><img src="assets/projects/pdf-p003.jpg" alt="Yantra posters in frames" loading="lazy"></figure>
+      </div>
+    </article>
+    <article class="project">
+      <header class="project-head">
+        <h3 class="project-title">up and down</h3>
+        <span class="dots" aria-hidden="true"></span>
+        <p class="project-meta">theatre play identity</p>
+      </header>
+      <div class="project-feature">
+        <figure class="project-hero tilt" id="tiltCard"><img src="assets/updown/mockup-fence.jpg" alt="Up and Down poster zip-tied to a fence in front of the skyline" loading="lazy"></figure>
+        <p class="project-desc">Identity and full campaign for an English-language contemporary theatre play in Budapest: poster, stickers and a social kit. Loud red, riso blue, collaged faces, and a scan-here block that actually got scanned.</p>
+      </div>
+      <div class="accordion accordion-tall" aria-label="Up and Down campaign gallery">
+        <figure class="acc"><img src="assets/updown/poster.jpg" alt="Up and Down final poster artwork" loading="lazy"><figcaption>the poster</figcaption></figure>
+        <figure class="acc"><img src="assets/updown/mockup-sticker-2.jpg" alt="Two Up and Down stickers on paper" loading="lazy"><figcaption>the stickers</figcaption></figure>
+        <figure class="acc"><img src="assets/updown/mockup-phones.jpg" alt="Event page and Instagram profile on two phones" loading="lazy"><figcaption>the socials</figcaption></figure>
+        <figure class="acc"><img src="assets/personal/ig-07.jpg" alt="Framed Up and Down poster leaning on a chair" loading="lazy"><figcaption>framed</figcaption></figure>
+        <figure class="acc"><img src="assets/updown/mockup-sticker-1.jpg" alt="Single Up and Down sticker, slightly worn" loading="lazy"><figcaption>worn in</figcaption></figure>
+      </div>
+    </article>
+  </section>
+
+  <div class="orn" aria-hidden="true"><span>&#10022;</span></div>
+
+  <!-- MOTION -->
+  <section class="motion" id="motion">
+    <h2 class="sec-giant">It also<br><em>moves.</em></h2>
+    <p class="motion-lede">Motion ads, trailers and VSL work for the funnels I design. Match cuts, explainer motion, cinematic talking heads: concept, design and cut from one hand, with Claude carrying the heavy lifting underneath.</p>
+    <div class="motion-grid motion-grid-4">
+      <figure class="mcard">
+        <video data-src="assets/motion/apo-workshop.mp4" poster="assets/motion/apo-workshop-poster.jpg" autoplay muted loop playsinline preload="metadata" data-autoplay></video>
+        <figcaption>apotheken coach, workshop motion</figcaption>
+      </figure>
+      <figure class="mcard">
+        <video data-src="assets/motion/uneq-trailer.mp4" poster="assets/motion/uneq-trailer-poster.jpg" autoplay muted loop playsinline preload="metadata" data-autoplay></video>
+        <figcaption>uneq, webinar trailer</figcaption>
+      </figure>
+      <figure class="mcard">
+        <video data-src="assets/motion/uneq-matchcut.mp4" poster="assets/motion/uneq-matchcut-poster.jpg" autoplay muted loop playsinline preload="metadata" data-autoplay></video>
+        <figcaption>uneq, match cut</figcaption>
+      </figure>
+      <figure class="mcard">
+        <video data-src="assets/motion/apo-report.mp4" poster="assets/motion/apo-report-poster.jpg" autoplay muted loop playsinline preload="metadata" data-autoplay></video>
+        <figcaption>apotheken coach, report explainer</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="orn" aria-hidden="true"><span>&#10087;</span></div>
 
   <!-- PROCESS: sideways scroll -->
   <section class="hpan" id="process">
@@ -83,7 +184,7 @@
 
         <div class="panel panel-intro">
           <h2 class="panel-giant">The AI part,<br><em>honestly.</em></h2>
-          <p class="panel-lede">A campaign rarely needs one ad. It needs fifty, on brand, by Friday. So I built a pipeline that renders whole series while I stay on the pixels. Keep scrolling, it goes sideways.</p>
+          <p class="panel-lede">A campaign rarely needs one ad. It needs fifty, on brand, by Friday. So I built my own studio pipeline with Claude: layout systems, series rendering, motion. I stay on the pixels, the machine takes the repetition. Keep scrolling, it goes sideways.</p>
         </div>
 
         <div class="panel">
@@ -119,40 +220,17 @@
         <div class="panel">
           <span class="panel-num" aria-hidden="true">03</span>
           <div class="panel-body">
-            <h3>Build each ad as code</h3>
-            <p>Every static is a small webpage with the brand tokens baked in. Changing a headline takes seconds, not another design file.</p>
+            <h3>Scale the series</h3>
+            <p>One system, fifty finals. Every hook, every angle, every format rendered in one pass, pixel-identical to the brand. A week of exports becomes an afternoon.</p>
           </div>
           <div class="panel-visual">
-            <pre class="code"><code><span class="c-tag">&lt;div</span> <span class="c-attr">class</span>=<span class="c-str">"ad ad--report"</span><span class="c-tag">&gt;</span>
-  <span class="c-tag">&lt;h1&gt;</span>Deutsche Sparer wissen oft nicht,
-      wie schnell sie im Ernstfall
-      <span class="c-tag">&lt;mark&gt;</span>an ihr eigenes Geld<span class="c-tag">&lt;/mark&gt;</span> kommen<span class="c-tag">&lt;/h1&gt;</span>
-  <span class="c-tag">&lt;img</span> <span class="c-attr">class</span>=<span class="c-str">"report-stack"</span> …<span class="c-tag">&gt;</span>
-  <span class="c-tag">&lt;a</span> <span class="c-attr">class</span>=<span class="c-str">"cta"</span><span class="c-tag">&gt;</span>Jetzt kostenfrei sichern<span class="c-tag">&lt;/a&gt;</span>
-<span class="c-tag">&lt;/div&gt;</span></code></pre>
+            <div class="fleet-grid" id="fleetGrid"></div>
           </div>
         </div>
+
 
         <div class="panel">
           <span class="panel-num" aria-hidden="true">04</span>
-          <div class="panel-body">
-            <h3>Render the whole fleet</h3>
-            <p>A Python script screenshots every ad at 2160px and downscales to a crisp 1080. Fifty finals in the time one manual export used to take.</p>
-          </div>
-          <div class="panel-visual">
-            <pre class="code"><code><span class="c-kw">with</span> sync_playwright() <span class="c-kw">as</span> pw:
-    browser = pw.chromium.launch(headless=<span class="c-kw">True</span>)
-    page = browser.new_page(
-        viewport={<span class="c-str">"width"</span>: <span class="c-num">1080</span>, <span class="c-str">"height"</span>: <span class="c-num">1080</span>},
-        device_scale_factor=<span class="c-num">2</span>)
-    <span class="c-kw">for</span> ad <span class="c-kw">in</span> ads:
-        page.goto(ad.as_uri())
-        page.screenshot(path=out / <span class="c-str">f"{ad.stem}.png"</span>)</code></pre>
-          </div>
-        </div>
-
-        <div class="panel">
-          <span class="panel-num" aria-hidden="true">05</span>
           <div class="panel-body">
             <h3>Iterate on performance</h3>
             <p>The ads go live, the numbers come back, the series evolves. Same motif, tightened until the data says stop.</p>
@@ -165,6 +243,8 @@
       </div>
     </div>
   </section>
+
+
 
   <div class="orn" aria-hidden="true"><span>&#8258;</span></div>
 
@@ -184,24 +264,17 @@
     </div>
   </section>
 
-  <!-- MOTION -->
-  <section class="motion" id="motion">
-    <h2 class="sec-giant">It also<br><em>moves.</em></h2>
-    <p class="motion-lede">Motion ads built the same way as the statics: designed frame by frame in code, shot by a headless browser, cut into reels.</p>
-    <div class="motion-grid">
-      <figure class="mcard mcard-tall">
-        <video data-src="assets/motion/ami-reel.mp4" poster="assets/motion/ami-reel-poster.jpg" autoplay muted loop playsinline preload="metadata" data-autoplay></video>
-        <figcaption>webinar profit booster, 9:16 reel</figcaption>
-      </figure>
-      <figure class="mcard">
-        <video data-src="assets/motion/uneq-ad3.mp4" poster="assets/motion/uneq-ad3-poster.jpg" autoplay muted loop playsinline preload="metadata" data-autoplay></video>
-        <figcaption>uneq, animated static</figcaption>
-      </figure>
-      <figure class="mcard mcard-tall">
-        <video data-src="assets/motion/funnel-reel.mp4" poster="assets/motion/funnel-reel-poster.jpg" autoplay muted loop playsinline preload="metadata" data-autoplay></video>
-        <figcaption>funnel motion reel, built with claude</figcaption>
-      </figure>
+  <!-- THE WALL -->
+  <section class="wall-section" id="wall">
+    <div class="wall-head">
+      <h2 class="sec-giant sec-mid">Paid ads,<br>the <em>proof.</em></h2>
+      <p class="wall-lede"><span data-count>600</span> of <span data-total>3,623</span> statics for personal brands across DACH. Worlds are nice; these had to perform. Click any tile to see it full size.</p>
+      <div class="wall-controls">
+        <div class="wall-filters" role="group" aria-label="Filter by client"></div>
+        <button class="tbtn" id="shuffleBtn" type="button">&#8635; Shuffle</button>
+      </div>
     </div>
+    <div class="wall" id="wallGrid"></div>
   </section>
 
   <div class="orn" aria-hidden="true"><span>&#10022;</span></div>
@@ -230,55 +303,14 @@
     </div>
   </section>
 
+
+
   <div class="orn" aria-hidden="true"><span>&#10087;</span></div>
 
   <!-- PERSONAL / INSTAGRAM -->
   <section class="personal" id="personal">
     <h2 class="sec-giant">Off the<br><em>clock</em></h2>
-    <p class="personal-lede">Identities, posters and print experiments. No performance targets, just taste practice. The full archive lives on <a href="https://www.instagram.com/julian.lanz.svg/" target="_blank" rel="noopener">@julian.lanz.svg</a>.</p>
-
-    <article class="project">
-      <header class="project-head">
-        <h3 class="project-title">yantra studio</h3>
-        <span class="dots" aria-hidden="true"></span>
-        <p class="project-meta">brand identity, budapest</p>
-      </header>
-      <p class="project-desc">A full identity for a Budapest design studio: mark, pattern system, palette, print, signage, and everything the brand touches on its way through the city.</p>
-      <div class="accordion" aria-label="Yantra Studio brand identity gallery">
-        <figure class="acc"><img src="assets/projects/pdf-p001.jpg" alt="Yantra Studio mark burned into wood" loading="lazy"><figcaption>the mark</figcaption></figure>
-        <figure class="acc"><img src="assets/projects/pdf-p004.jpg" alt="Yantra color palette over desert imagery" loading="lazy"><figcaption>palette</figcaption></figure>
-        <figure class="acc"><img src="assets/projects/pdf-p013.jpg" alt="Brand pattern wrapped on a black van" loading="lazy"><figcaption>pattern van</figcaption></figure>
-        <figure class="acc"><img src="assets/projects/pdf-p010.jpg" alt="Stationery mockups" loading="lazy"><figcaption>stationery</figcaption></figure>
-        <figure class="acc"><img src="assets/projects/pdf-p016.jpg" alt="Yantra signage on a wall" loading="lazy"><figcaption>signage</figcaption></figure>
-        <figure class="acc"><img src="assets/projects/pdf-p018.jpg" alt="Business cards laid out as a checkerboard" loading="lazy"><figcaption>the cards</figcaption></figure>
-        <figure class="acc"><img src="assets/projects/pdf-p021.jpg" alt="Tote bag with Yantra mark" loading="lazy"><figcaption>the tote</figcaption></figure>
-      </div>
-      <div class="mosaic mosaic-slim">
-        <figure class="mz"><img src="assets/projects/pdf-p009.jpg" alt="Texture and imagery board" loading="lazy"></figure>
-        <figure class="mz"><img src="assets/personal/ig-08.jpg" alt="Yantra Studio ceramic mug" loading="lazy"></figure>
-        <figure class="mz"><img src="assets/personal/ig-06.jpg" alt="Yantra banners between stone columns" loading="lazy"></figure>
-        <figure class="mz"><img src="assets/projects/pdf-p003.jpg" alt="Yantra posters in frames" loading="lazy"></figure>
-      </div>
-    </article>
-
-    <article class="project">
-      <header class="project-head">
-        <h3 class="project-title">up and down</h3>
-        <span class="dots" aria-hidden="true"></span>
-        <p class="project-meta">theatre play identity</p>
-      </header>
-      <div class="project-feature">
-        <figure class="project-hero tilt" id="tiltCard"><img src="assets/updown/mockup-fence.jpg" alt="Up and Down poster zip-tied to a fence in front of the skyline" loading="lazy"></figure>
-        <p class="project-desc">Identity and full campaign for an English-language contemporary theatre play in Budapest: poster, stickers and a social kit. Loud red, riso blue, collaged faces, and a scan-here block that actually got scanned.</p>
-      </div>
-      <div class="accordion accordion-tall" aria-label="Up and Down campaign gallery">
-        <figure class="acc"><img src="assets/updown/poster.jpg" alt="Up and Down final poster artwork" loading="lazy"><figcaption>the poster</figcaption></figure>
-        <figure class="acc"><img src="assets/updown/mockup-sticker-2.jpg" alt="Two Up and Down stickers on paper" loading="lazy"><figcaption>the stickers</figcaption></figure>
-        <figure class="acc"><img src="assets/updown/mockup-phones.jpg" alt="Event page and Instagram profile on two phones" loading="lazy"><figcaption>the socials</figcaption></figure>
-        <figure class="acc"><img src="assets/personal/ig-07.jpg" alt="Framed Up and Down poster leaning on a chair" loading="lazy"><figcaption>framed</figcaption></figure>
-        <figure class="acc"><img src="assets/updown/mockup-sticker-1.jpg" alt="Single Up and Down sticker, slightly worn" loading="lazy"><figcaption>worn in</figcaption></figure>
-      </div>
-    </article>
+    <p class="personal-lede">Posters, marks and print experiments. No performance targets, just taste practice. The full archive lives on <a href="https://www.instagram.com/julian.lanz.svg/" target="_blank" rel="noopener">@julian.lanz.svg</a>.</p>
 
     <article class="project">
       <header class="project-head">
@@ -326,7 +358,7 @@
       </div>
       <div class="about-side">
         <p class="about-name" aria-hidden="true">julian</p>
-        <p class="about-body">Creative designer, building creatives for personal brands across the DACH market. My tools change per project, my standard doesn't: if it ships, it converts and it looks right.</p>
+        <p class="about-body">Creative designer turned creative director. I build brand worlds and the campaign systems that carry them, for personal brands across the DACH market. My tools change per project, my standard doesn't: if it ships, it converts and it looks right.</p>
         <p class="about-body about-body-2">Classically trained first: design school, then years in the full Adobe suite until every tool sat in muscle memory. AI came later in my career, built on top of that foundation. I don't prompt instead of knowing the craft, I prompt because I know it.</p>
         <p class="about-list">static ad systems&nbsp;/ reels and video pipelines&nbsp;/ landing page design&nbsp;/ brand and ci extraction&nbsp;/ ai image direction&nbsp;/ render automation</p>
         <div class="toolbox">
@@ -416,6 +448,6 @@
   <button class="lb-nav lb-next" type="button" aria-label="Next ad">&rarr;</button>
 </dialog>
 
-<script src="js/site.js?v=36"></script>
+<script src="js/site.js?v=40"></script>
 </body>
 </html>
