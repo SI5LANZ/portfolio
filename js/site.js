@@ -241,6 +241,7 @@
   /* ---------- motion: attach the video source only when it comes close ----------
      the reels weigh ~27 MB together; with a src set up front the browser starts
      pulling them at page load. Poster shows until then, autoplay takes over after. */
+  const wanted = new Set(); // videos currently in view that should be playing
   const lazyVids = document.querySelectorAll("video[data-src]");
   const srcObs = new IntersectionObserver(
     (entries) => {
@@ -249,7 +250,11 @@
         const v = en.target;
         v.src = v.dataset.src;
         v.removeAttribute("data-src");
+        // iOS wants these as properties after a dynamic src, the attributes alone are not enough
+        v.muted = true;
+        v.playsInline = true;
         v.load();
+        if (wanted.has(v)) v.play().catch(() => {});
         srcObs.unobserve(v);
       });
     },
@@ -259,13 +264,24 @@
 
   /* ---------- motion: play only while in view ---------- */
   const vids = document.querySelectorAll("[data-autoplay]");
+  const tryPlay = (v) => {
+    if (reduceMotion || !v.getAttribute("src")) return;
+    v.muted = true;
+    v.playsInline = true;
+    v.play().catch(() => {
+      // not ready yet (or blocked): retry once data is there, and again on the first touch
+      v.addEventListener("canplay", () => { if (wanted.has(v)) v.play().catch(() => {}); }, { once: true });
+    });
+  };
   const vidObs = new IntersectionObserver(
     (entries) => {
       entries.forEach((en) => {
         const v = en.target;
-        if (en.isIntersecting && !reduceMotion) {
-          v.play().catch(() => {});
+        if (en.isIntersecting) {
+          wanted.add(v);
+          tryPlay(v);
         } else {
+          wanted.delete(v);
           v.pause();
         }
       });
@@ -273,6 +289,16 @@
     { threshold: 0.35 }
   );
   vids.forEach((v) => vidObs.observe(v));
+
+  // iOS in low-power mode (and some browsers) refuse autoplay until the page is touched:
+  // the first touch or key press wakes every in-view video.
+  const wake = () => {
+    wanted.forEach((v) => { if (v.paused) tryPlay(v); });
+  };
+  ["touchstart", "pointerdown", "keydown"].forEach((ev) =>
+    addEventListener(ev, wake, { passive: true }));
+  setTimeout(wake, 1500);
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) wake(); });
 
   /* ---------- hero leopard: composite each frame onto the page color ----------
      iOS does not blend CSS over <video> layers, so we do the math in canvas:
@@ -285,7 +311,15 @@
     const cream = getComputedStyle(document.documentElement).getPropertyValue("--bg").trim() || "#f9f7ee";
     const desktopMq = matchMedia("(min-width: 901px)");
     let running = false;
+    let lastDraw = 0;
     const draw = () => {
+      lastDraw = performance.now();
+      // no frame yet (metadata still loading): keep the loop alive, draw nothing.
+      // drawImage with a 0-wide source throws and would silently kill the loop.
+      if (leoVideo.readyState < 2 || !leoVideo.videoWidth) {
+        if (running) requestAnimationFrame(draw);
+        return;
+      }
       // crop the clip's paper fold at top and bottom edges
       const cropY = Math.round(leoVideo.videoHeight * 0.05);
       const srcH = leoVideo.videoHeight - cropY * 2;
@@ -293,7 +327,7 @@
         leoCanvas.width = leoVideo.videoWidth;
         leoCanvas.height = srcH;
       }
-      if (leoCanvas.width) {
+      if (leoCanvas.width) try {
         ctx.globalCompositeOperation = "source-over";
         ctx.globalAlpha = 1;
         ctx.drawImage(leoVideo, 0, cropY, leoVideo.videoWidth, srcH, 0, 0, leoCanvas.width, leoCanvas.height);
@@ -307,19 +341,36 @@
           ctx.fillStyle = cream;
           ctx.fillRect(0, 0, leoCanvas.width, leoCanvas.height);
         }
-      }
+      } catch (e) { /* skip this frame, never stop the loop */ }
       if (running) requestAnimationFrame(draw);
     };
-    leoVideo.addEventListener("play", () => {
-      if (!running) { running = true; requestAnimationFrame(draw); }
+    const startLoop = () => { if (!running) { running = true; requestAnimationFrame(draw); } };
+    ["play", "playing"].forEach((ev) => leoVideo.addEventListener(ev, startLoop));
+    // safety net: if requestAnimationFrame is throttled or stalled (background tab, low-power
+    // mode, odd webviews), the video's own clock still paints frames
+    const origDraw = draw;
+    const drawStamped = () => { lastDraw = performance.now(); origDraw(); };
+    leoVideo.addEventListener("timeupdate", () => {
+      if (leoVideo.paused) return;
+      startLoop();
+      if (performance.now() - lastDraw > 120) { const r = running; running = false; drawStamped(); running = r; }
     });
+    leoVideo.muted = true;
+    leoVideo.playsInline = true;
     leoVideo.addEventListener("pause", () => { running = false; });
     // always paint a still as soon as frames exist, so the stamp shows even
     // where autoplay is blocked (iOS low power mode, data saver)
     const paintStill = () => { if (!running) draw(); };
     if (leoVideo.readyState >= 2) paintStill();
     ["loadeddata", "canplay", "seeked"].forEach((ev) => leoVideo.addEventListener(ev, paintStill));
-    if (leoVideo.paused) leoVideo.play().catch(() => { paintStill(); });
+    // the clip usually starts playing before this script finishes loading the manifests,
+    // so the "play" event is long gone: if it is already running, start the loop right now
+    if (!leoVideo.paused && !leoVideo.ended) startLoop();
+    else leoVideo.play().then(startLoop).catch(() => { paintStill(); });
+    // and never trust a single kick: re-check a few times during the first seconds
+    [400, 1200, 3000].forEach((t) => setTimeout(() => {
+      if (!leoVideo.paused) startLoop(); else if (leoCanvas.width <= 300) paintStill();
+    }, t));
   }
 
   /* ---------- up & down: 3d tilt toward the cursor ---------- */

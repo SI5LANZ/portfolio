@@ -93,7 +93,15 @@ hero (Typo + laufender Leopard) → marquee → **worlds** (Yantra-Accordion + M
   (drawImage → `lighter`-Pass ×1.3 brennt das Papier weiß → Desktop zusätzlich `multiply` mit var(--bg)).
   Das Quellvideo muss in voller Größe hinter dem Canvas liegen (iOS startet „unsichtbare" Videos nicht).
   Mobil ist der weiße Block gewollt: zentriert, Headline schneidet ihn an.
-- Alle Videos: `muted playsinline autoplay loop` + `data-autoplay` (IO pausiert offscreen).
+- Alle Videos: `muted playsinline autoplay loop` + `data-autoplay` (IO pausiert offscreen). Nach dynamischem `src`
+  auf iOS zusätzlich `v.muted = true; v.playsInline = true` als Property setzen, `play()` bei Reject auf `canplay` wiederholen,
+  und der erste Touch (`touchstart`/`pointerdown`) weckt alle sichtbaren Videos (Low-Power-Mode).
+- Leopard-Loop: Das Video spielt meist schon, bevor site.js (nach dem Manifest-Fetch) seine Listener anhängt – das
+  `play`-Event ist dann weg. Deshalb: nach dem Anhängen sofort prüfen (`!paused` → Loop starten), `timeupdate` als
+  Zeichen-Fallback (malt auch, wenn requestAnimationFrame stillsteht), `drawImage` nur bei `readyState >= 2`
+  (0-breite Quelle wirft und würde den Loop lautlos killen), try/catch pro Frame.
+- Im Browser-Pane der Desktop-App feuert requestAnimationFrame oft NICHT (auch bei visibilityState visible) –
+  Canvas-Animationen dort per `timeupdate`-Fallback oder DOM-Signaturen prüfen, nicht per rAF.
   Motion-Reels haben `data-src`, ein IntersectionObserver (700px Vorlauf) setzt `src` erst beim Näherkommen.
 - `html, body { overflow-x: clip }` (nicht `hidden` – das bricht sticky und erlaubt Quer-Wischen).
 - Sideways-Prozess (`animation-timeline: view()`) nur ≥901px; mobil vertikaler Stack.
