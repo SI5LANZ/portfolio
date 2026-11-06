@@ -1574,3 +1574,61 @@ em {
 .sec-mid { font-size: clamp(2.6rem, 7.5vw, 7rem); }
 .wall-section { padding-top: clamp(3rem, 6vw, 5rem); }
 .wall-head .sec-mid { margin-bottom: 0; mix-blend-mode: normal; }
+
+/* ---------- Quieter section heads: the menu line + text, elements tell the story ---------- */
+.endo > .project-head, .motion > .project-head, .funnels > .project-head { margin-bottom: 1.2rem; }
+.endo-head { margin-top: 0; }
+.wall-phead { margin-bottom: 1rem; }
+.panel-title {
+  font-family: var(--font-serif);
+  font-variant: small-caps;
+  letter-spacing: .06em;
+  font-weight: 600;
+  font-size: clamp(1.8rem, 3.6vw, 3rem);
+  line-height: 1.1;
+}
+.worlds .project:first-child { margin-top: 0; }
+.personal .project:first-child { margin-top: 0; }
+
+/* endo: two centerpieces, the teaser and the invite */
+.endo-feature-2 {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: auto;
+  align-items: start;
+}
+.endo-feature-2 .endo-video { grid-row: auto; }
+.endo-cocktail { margin: 0; }
+.endo-cocktail img { width: 100%; display: block; aspect-ratio: 4 / 5; object-fit: cover; }
+.endo-cocktail figcaption {
+  margin-top: .7rem;
+  font-family: var(--font-serif);
+  font-variant: small-caps;
+  letter-spacing: .05em;
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+}
+@media (max-width: 900px) {
+  .endo-feature-2 { grid-template-columns: 1fr; }
+  .endo-feature-2 .endo-video { grid-column: auto; }
+}
+
+/* endo: three quiet finals instead of brand-asset boards */
+.endo-trio {
+  margin-top: clamp(1.5rem, 4vw, 2.5rem);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(.8rem, 2vw, 1.4rem);
+}
+.endo-trio figure { margin: 0; }
+.endo-trio img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; }
+@media (max-width: 720px) { .endo-trio { grid-template-columns: 1fr 1fr; } .endo-trio figure:last-child { grid-column: 1 / -1; } }
+
+/* yantra: zoom-crop the spreads so their dark page edges never show */
+@media (min-width: 721px) {
+  .accordion-yantra .acc img { transform: scale(1.32); object-position: 50% 48%; }
+  .accordion-yantra .acc:hover img { transform: scale(1.32); }
+}
+@media (max-width: 720px) {
+  .accordion-yantra .acc { overflow: hidden; }
+  .accordion-yantra .acc img { aspect-ratio: 16 / 10; object-fit: cover; object-position: 50% 48%; transform: scale(1.28); }
+}

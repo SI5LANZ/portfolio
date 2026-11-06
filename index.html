@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=40">
+<link rel="stylesheet" href="css/site.css?v=42">
 </head>
 <body>
 
@@ -62,50 +62,8 @@
     </div>
   </div>
 
-  <!-- ENDO: lead case, creative direction -->
-  <section class="endo" id="work">
-    <div class="endo-head">
-      <h2 class="sec-giant">endo,<br>a night in <em>budapest.</em></h2>
-      <p class="endo-lede">Creative direction and identity for endo, a party series in Budapest. Brushed metal as the surface, a disco-ball orbit as the mark, Garamond italic as the voice. From the logo to invites, posters, socials and the clubroom teaser: one world, every touchpoint.</p>
-    </div>
-
-    <div class="endo-feature">
-      <figure class="endo-video">
-        <video data-src="assets/motion/endo-clubroom.mp4" poster="assets/motion/endo-clubroom-poster.jpg" autoplay muted loop playsinline preload="metadata" data-autoplay></video>
-        <figcaption>clubroom teaser</figcaption>
-      </figure>
-      <figure class="endo-still endo-still-a"><img src="assets/endo/board-metal.jpg" alt="endo wordmark in red on brushed metal" loading="lazy"></figure>
-      <figure class="endo-still endo-still-b"><img src="assets/endo/post-1.jpg" alt="endo mark in blue on chrome" loading="lazy"></figure>
-    </div>
-
-    <div class="accordion accordion-tall endo-acc" aria-label="endo designs">
-      <figure class="acc"><img src="assets/endo/slide-0.jpg" alt="endo logo, red, budapest 2026" loading="lazy"><figcaption>the mark</figcaption></figure>
-      <figure class="acc"><img src="assets/endo/slide-1.jpg" alt="endo logo in blue on brushed metal" loading="lazy"><figcaption>on metal</figcaption></figure>
-      <figure class="acc"><img src="assets/endo/post-4.jpg" alt="construction drawing of the endo mark" loading="lazy"><figcaption>construction</figcaption></figure>
-      <figure class="acc"><img src="assets/endo/slide-4.jpg" alt="endo red mark on steel" loading="lazy"><figcaption>steel</figcaption></figure>
-      <figure class="acc"><img src="assets/endo/slide-5.jpg" alt="endo wordmark cropped large on metal" loading="lazy"><figcaption>close</figcaption></figure>
-      <figure class="acc"><img src="assets/endo/post-2.jpg" alt="endo mark in red on grey" loading="lazy"><figcaption>on grey</figcaption></figure>
-    </div>
-
-    <div class="endo-board">
-      <figure class="eb"><img src="assets/endo/board-marks.jpg" alt="endo logo marks in blue and red" loading="lazy"><figcaption>the marks</figcaption></figure>
-      <figure class="eb"><img src="assets/endo/board-type.jpg" alt="type specimen: adobe garamond and playfair display italic" loading="lazy"><figcaption>the type</figcaption></figure>
-      <figure class="eb"><img src="assets/endo/board-palette.jpg" alt="palette: red, black, grey, vermilion, blue" loading="lazy"><figcaption>the palette</figcaption></figure>
-      <figure class="eb eb-tall"><img src="assets/endo/board-cocktail.jpg" alt="endo poster with a cocktail glass" loading="lazy"><figcaption>the invite</figcaption></figure>
-    </div>
-
-    <div class="endo-posters">
-      <img src="assets/endo/board-posters-a.jpg" alt="endo poster series: glasses, disco, plates" loading="lazy">
-      <img src="assets/endo/board-posters-b.jpg" alt="endo poster series: tray, elevator, disco ball, crowd" loading="lazy">
-    </div>
-  </section>
-
-  <div class="orn" aria-hidden="true"><span>&#8258;</span></div>
-
   <!-- WORLDS: more identities -->
-  <section class="worlds">
-    <h2 class="sec-giant">More<br><em>worlds.</em></h2>
-    <p class="worlds-lede">Two more identities that started as a feeling and ended as a system.</p>
+  <section class="worlds" id="work">
     <article class="project">
       <header class="project-head">
         <h3 class="project-title">yantra studio</h3>
@@ -113,7 +71,7 @@
         <p class="project-meta">brand identity, budapest</p>
       </header>
       <p class="project-desc">A full identity for a Budapest design studio: mark, pattern system, palette, print, signage, and everything the brand touches on its way through the city.</p>
-      <div class="accordion" aria-label="Yantra Studio brand identity gallery">
+      <div class="accordion accordion-yantra" aria-label="Yantra Studio brand identity gallery">
         <figure class="acc"><img src="assets/projects/pdf-p001.jpg" alt="Yantra Studio mark burned into wood" loading="lazy"><figcaption>the mark</figcaption></figure>
         <figure class="acc"><img src="assets/projects/pdf-p004.jpg" alt="Yantra color palette over desert imagery" loading="lazy"><figcaption>palette</figcaption></figure>
         <figure class="acc"><img src="assets/projects/pdf-p013.jpg" alt="Brand pattern wrapped on a black van" loading="lazy"><figcaption>pattern van</figcaption></figure>
@@ -149,11 +107,60 @@
     </article>
   </section>
 
+
+
+  <div class="orn" aria-hidden="true"><span>&#8258;</span></div>
+
+  <!-- ENDO: lead case, creative direction -->
+  <section class="endo">
+    <header class="project-head">
+      <h2 class="project-title">endo</h2>
+      <span class="dots" aria-hidden="true"></span>
+      <p class="project-meta">creative direction, budapest</p>
+    </header>
+    <div class="endo-head">
+      <p class="endo-lede">Creative direction and identity for endo, a party series in Budapest. Brushed metal as the surface, a disco-ball orbit as the mark, Garamond italic as the voice. From the logo to invites, posters, socials and the clubroom teaser: one world, every touchpoint.</p>
+    </div>
+
+    <div class="endo-feature endo-feature-2">
+      <figure class="endo-video">
+        <video data-src="assets/motion/endo-clubroom.mp4" poster="assets/motion/endo-clubroom-poster.jpg" autoplay muted loop playsinline preload="metadata" data-autoplay></video>
+        <figcaption>clubroom teaser</figcaption>
+      </figure>
+      <figure class="endo-cocktail">
+        <img src="assets/endo/slide-0.jpg" alt="endo invite: a cocktail glass on a steel tray" loading="lazy">
+        <figcaption>the invite</figcaption>
+      </figure>
+    </div>
+
+    <div class="accordion accordion-tall endo-acc" aria-label="endo designs">
+      <figure class="acc"><img src="assets/endo/slide-1.jpg" alt="endo logo in blue on brushed metal" loading="lazy"><figcaption>on metal</figcaption></figure>
+      <figure class="acc"><img src="assets/endo/post-1.jpg" alt="endo mark in blue on chrome" loading="lazy"><figcaption>chrome</figcaption></figure>
+      <figure class="acc"><img src="assets/endo/post-4.jpg" alt="construction drawing of the endo mark" loading="lazy"><figcaption>construction</figcaption></figure>
+      <figure class="acc"><img src="assets/endo/slide-4.jpg" alt="endo red mark on steel" loading="lazy"><figcaption>steel</figcaption></figure>
+      <figure class="acc"><img src="assets/endo/slide-5.jpg" alt="endo wordmark cropped large on metal" loading="lazy"><figcaption>close</figcaption></figure>
+      <figure class="acc"><img src="assets/endo/post-2.jpg" alt="endo mark in red on grey" loading="lazy"><figcaption>on grey</figcaption></figure>
+    </div>
+
+
+    <div class="endo-trio">
+      <figure><img src="assets/endo/slide-3.jpg" alt="endo wordmark in blue on brushed steel" loading="lazy"></figure>
+      <figure><img src="assets/endo/slide-6.jpg" alt="endo mark construction over steel, budapest 2026" loading="lazy"></figure>
+      <figure><img src="assets/endo/post-3.jpg" alt="endo wordmark cropped large, etched into metal" loading="lazy"></figure>
+    </div>
+  </section>
+
+
+
   <div class="orn" aria-hidden="true"><span>&#10022;</span></div>
 
   <!-- MOTION -->
   <section class="motion" id="motion">
-    <h2 class="sec-giant">It also<br><em>moves.</em></h2>
+    <header class="project-head">
+      <h2 class="project-title">motion</h2>
+      <span class="dots" aria-hidden="true"></span>
+      <p class="project-meta">reels, trailers, vsl</p>
+    </header>
     <p class="motion-lede">Motion ads, trailers and VSL work for the funnels I design. Match cuts, explainer motion, cinematic talking heads: concept, design and cut from one hand, with Claude carrying the heavy lifting underneath.</p>
     <div class="motion-grid motion-grid-4">
       <figure class="mcard">
@@ -175,6 +182,8 @@
     </div>
   </section>
 
+
+
   <div class="orn" aria-hidden="true"><span>&#10087;</span></div>
 
   <!-- PROCESS: sideways scroll -->
@@ -183,7 +192,7 @@
       <div class="hpan-track" id="hpanTrack">
 
         <div class="panel panel-intro">
-          <h2 class="panel-giant">The AI part,<br><em>honestly.</em></h2>
+          <h2 class="panel-title">how a series gets made</h2>
           <p class="panel-lede">A campaign rarely needs one ad. It needs fifty, on brand, by Friday. So I built my own studio pipeline with Claude: layout systems, series rendering, motion. I stay on the pixels, the machine takes the repetition. Keep scrolling, it goes sideways.</p>
         </div>
 
@@ -246,11 +255,13 @@
 
 
 
+
+
   <div class="orn" aria-hidden="true"><span>&#8258;</span></div>
 
   <!-- COMPARE -->
   <section class="compare-section">
-    <h2 class="sec-giant sec-center">A <em>vs.</em> B</h2>
+    <h2 class="sec-giant sec-center sec-mid">a <em>vs.</em> b</h2>
     <p class="compare-lede">Same hook for Flipper, two executions in the test. Drag it.</p>
     <div class="compare" id="compare" aria-label="Comparison of two ad executions">
       <img class="compare-img compare-after" src="assets/work/flipper__ad_1c.jpg" alt="Flipper ad, variant B with the calculator download">
@@ -267,7 +278,11 @@
   <!-- THE WALL -->
   <section class="wall-section" id="wall">
     <div class="wall-head">
-      <h2 class="sec-giant sec-mid">Paid ads,<br>the <em>proof.</em></h2>
+      <header class="project-head wall-phead">
+        <h2 class="project-title">paid ads</h2>
+        <span class="dots" aria-hidden="true"></span>
+        <p class="project-meta">meta statics, 2025–2026</p>
+      </header>
       <p class="wall-lede"><span data-count>600</span> of <span data-total>3,623</span> statics for personal brands across DACH. Worlds are nice; these had to perform. Click any tile to see it full size.</p>
       <div class="wall-controls">
         <div class="wall-filters" role="group" aria-label="Filter by client"></div>
@@ -277,11 +292,17 @@
     <div class="wall" id="wallGrid"></div>
   </section>
 
+
+
   <div class="orn" aria-hidden="true"><span>&#10022;</span></div>
 
   <!-- FUNNELS -->
   <section class="funnels">
-    <h2 class="sec-giant">And the pages<br>behind the <em>click.</em></h2>
+    <header class="project-head">
+      <h2 class="project-title">funnels</h2>
+      <span class="dots" aria-hidden="true"></span>
+      <p class="project-meta">landing pages, leadpages</p>
+    </header>
     <p class="funnels-lede">Ads are half the funnel. I design and build the landing pages too: live, wired up, a/b-tested. Hover to scroll them.</p>
     <div class="funnels-grid">
       <figure class="fcard">
@@ -305,12 +326,12 @@
 
 
 
+
+
   <div class="orn" aria-hidden="true"><span>&#10087;</span></div>
 
   <!-- PERSONAL / INSTAGRAM -->
   <section class="personal" id="personal">
-    <h2 class="sec-giant">Off the<br><em>clock</em></h2>
-    <p class="personal-lede">Posters, marks and print experiments. No performance targets, just taste practice. The full archive lives on <a href="https://www.instagram.com/julian.lanz.svg/" target="_blank" rel="noopener">@julian.lanz.svg</a>.</p>
 
     <article class="project">
       <header class="project-head">
@@ -448,6 +469,6 @@
   <button class="lb-nav lb-next" type="button" aria-label="Next ad">&rarr;</button>
 </dialog>
 
-<script src="js/site.js?v=40"></script>
+<script src="js/site.js?v=41"></script>
 </body>
 </html>
