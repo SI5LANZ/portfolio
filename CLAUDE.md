@@ -23,7 +23,10 @@ gh api repos/SI5LANZ/portfolio/pages/builds/latest --jq .status   # "built" = fe
 
 - **Cache-Busting:** nach jeder CSS/JS-Änderung die `?v=N` an `css/site.css?v=…` und
   `js/site.js?v=…` in `index.html` hochzählen, sonst sieht Julian alte Versionen (sein Handy cached hart).
-- GitHub Pages braucht die `.nojekyll`-Datei im Root (ohne sie schlug der Build nach dem Video-Push mit „Page build failed“ fehl). Nie löschen.
+- GitHub Pages braucht die `.nojekyll`-Datei im Root. Nie löschen. Der Legacy-Builder meldet gelegentlich „Page build failed“ ohne Grund
+  (06.11.: drei Fehlschläge in Folge, danach lief derselbe Commit durch) → einfach neu anstoßen:
+  `gh api -X POST repos/SI5LANZ/portfolio/pages/builds`. Ein Actions-Workflow-Deploy wäre robuster, aber der `gh`-Token hat
+  keinen `workflow`-Scope; dafür müsste Julian einmal `gh auth refresh -h github.com -s workflow` im Terminal ausführen.
 - Nach Änderungen immer **Desktop (≥901px) und Mobil (375px)** prüfen. Die meisten Bugs der
   Vergangenheit waren Mobil-Bugs (Overflow, zerquetschte Galerien, iOS-Video-Eigenheiten).
 
